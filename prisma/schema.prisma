@@ -1,0 +1,59 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Category {
+  id          String  @id @default(uuid())
+  title       String
+  description String
+  imageUrl    String
+  isPublished Boolean @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  products Product[]
+}
+
+model Product {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  price       Float
+  imagesUrl   String[]
+  isPublished Boolean  @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  Category     Category?      @relation(fields: [categoryId], references: [id])
+  categoryId   String?
+  OrderProduct OrderProduct[]
+}
+
+model Order {
+  id          String   @id @default(uuid())
+  userId      String // Assuming you have a User model or similar for users
+  totalAmount Float // Total amount for the order
+  status      String // Status of the order (e.g., "Pending", "Shipped", "Delivered")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  products OrderProduct[] // Many-to-many relation with products
+}
+
+model OrderProduct {
+  id        String @id @default(uuid())
+  orderId   String
+  productId String
+  quantity  Int // Quantity of the product in the order
+  price     Float // Price of the product at the time of the order
+
+  order   Order   @relation(fields: [orderId], references: [id])
+  product Product @relation(fields: [productId], references: [id])
+}
