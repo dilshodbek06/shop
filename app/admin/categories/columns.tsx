@@ -32,6 +32,13 @@ export const columns: ColumnDef<Category>[] = [
   {
     accessorKey: "description",
     header: "Description",
+    cell: ({ row }) => {
+      return (
+        <div className="line-clamp-1">
+          {row.getValue("description")}
+        </div>
+      );
+    },
   },
   {
     accessorKey: "isPublished",

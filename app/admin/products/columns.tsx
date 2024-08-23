@@ -28,10 +28,24 @@ export const columns: ColumnDef<Product>[] = [
   {
     accessorKey: "title",
     header: "Title",
+    cell: ({ row }) => {
+      return (
+        <div className="line-clamp-1">
+          {row.getValue("title")}
+        </div>
+      );
+    },
   },
   {
     accessorKey: "description",
     header: "Description",
+    cell: ({ row }) => {
+      return (
+        <div className="line-clamp-1">
+          {row.getValue("description")}
+        </div>
+      );
+    },
   },
   {
     accessorKey: "Category.title",

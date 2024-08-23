@@ -121,13 +121,13 @@ const CartPage = () => {
                   style={{ aspectRatio: "1 / 1", objectFit: "cover" }}
                 />
                 <div className="grid gap-1">
-                  <h3 className="font-medium">{c.title}</h3>
-                  <p className="text-gray-500 dark:text-gray-400 text-sm">
+                  <h3 className="font-medium mx-1 line-clamp-1 sm:line-clamp-none">{c.title}</h3>
+                  <p className="text-gray-500 dark:text-gray-400 text-sm line-clamp-1">
                     {c.description}
                   </p>
                 </div>
                 <div className="flex items-center justify-end gap-2">
-                  <span className="font-medium">{c.price} UZS</span>
+                  <span className="font-medium">{c.price.toLocaleString()} UZS</span>
                   <Select
                     onValueChange={(e) =>
                       handleQuantityChange(c.id, parseInt(e))
@@ -159,7 +159,7 @@ const CartPage = () => {
           <CardContent className="grid gap-4">
             <div className="flex items-center justify-between">
               <span>Subtotal</span>
-              <span className="font-medium">{totalPrice} UZS</span>
+              <span className="font-medium">{totalPrice.toLocaleString()} UZS</span>
             </div>
             <div className="flex items-center justify-between">
               <span>Shipping</span>
@@ -168,7 +168,7 @@ const CartPage = () => {
             <Separator />
             <div className="flex items-center justify-between font-medium text-lg">
               <span>Total</span>
-              <span>{totalPrice} UZS</span>
+              <span>{totalPrice.toLocaleString()} UZS</span>
             </div>
           </CardContent>
           <CardFooter>

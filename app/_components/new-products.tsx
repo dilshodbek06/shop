@@ -12,7 +12,7 @@ const NewProducts = async () => {
       <h1 className="font-bold text-3xl">
         <span className="text-sky-600">New</span> Products
       </h1>
-      <div className="w-full  mt-5 gap-3 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <div className="w-full  mt-6 gap-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {products.map((product) => (
           <ProductCard
             description={product.description}

@@ -24,7 +24,7 @@ export default function HomePage() {
         <Benefits />
       </div>
       {/* New products */}
-      <div className="mt-5">
+      <div className="mt-8">
         <NewProducts />
       </div>
       {/* Footer */}

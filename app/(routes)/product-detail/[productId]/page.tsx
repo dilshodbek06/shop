@@ -120,8 +120,8 @@ const ProductDetailPage = ({
             <p className="text-xl font-medium opacity-70">
               {currentProduct.description}
             </p>
-            <p className="font-medium text-sky-800">
-              {currentProduct.price} UZS
+            <p className="font-medium text-sky-800 text-lg">
+              {currentProduct.price.toLocaleString()} UZS
             </p>
           </div>
           <Separator />

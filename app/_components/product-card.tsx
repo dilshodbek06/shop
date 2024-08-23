@@ -25,7 +25,7 @@ const ProductCard = ({
   const addToCart = useCartStore((state) => state.addToCart);
   return (
     <div className="max-w-md w-full mx-auto rounded-md overflow-hidden shadow-md hover:shadow-lg">
-      <div className="relative max-w-[300px] w-full h-[170px] border-2">
+      <div className="relative sm:max-w-[300px] w-full h-[170px] border">
         <Image
           className="w-full object-cover h-full"
           src={imagesUrl[0]}
@@ -49,7 +49,9 @@ const ProductCard = ({
 
         <p className="text-gray-600 text-sm mb-4 line-clamp-2">{description}</p>
         <div className="flex gap-1 items-center justify-between">
-          <span className="font-bold text-lg">{price} UZS</span>
+          <span className="font-bold text-lg">
+            {price.toLocaleString()} UZS
+          </span>
           <Button
             onClick={() => {
               addToCart({

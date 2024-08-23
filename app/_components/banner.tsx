@@ -8,7 +8,7 @@ import {
 
 const Banner = () => {
   return (
-    <div className="max-w-6xl mx-auto px-14">
+    <div className="max-w-6xl mx-auto px-[3rem]">
       <Carousel className="sm:min-h-[230px] ">
         <CarouselContent>
           <CarouselItem>
