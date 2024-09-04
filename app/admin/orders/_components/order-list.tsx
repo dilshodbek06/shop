@@ -38,14 +38,14 @@ const OrderList = ({ items }: OrderListProps) => {
   }
 
   return (
-    <div className="min-h-[27rem] flex shadow-md border-2 border-gray-600">
+    <div className="min-h-[27rem] w-full overflow-x-auto flex shadow-md border border-gray-300 rounded-sm">
       {/* OPEN */}
-      <div className="w-1/3 overflow-y-auto">
+      <div className="overflow-y-auto min-w-[200px] w-full max-w-sm">
         <h3 className="text-center font-medium text-lg">OPEN</h3>
         <div
           onDrop={() => changeStatus("OPEN")}
           onDragOver={(e) => e.preventDefault()}
-          className="px-3 min-h-[200px]"
+          className="px-2 md:px-3 min-h-[200px] flex flex-col gap-2"
         >
           {/* OPEN orders in here */}
 
@@ -66,12 +66,12 @@ const OrderList = ({ items }: OrderListProps) => {
         </div>
       </div>
       {/* INPROGRESS */}
-      <div className="w-1/3 border-r border-l border-gray-600 overflow-y-auto">
+      <div className="min-w-[200px] max-w-sm w-full border-r border-l border-gray-300 overflow-y-auto">
         <h3 className="text-center font-medium text-lg">INPROGRESS</h3>
         <div
           onDrop={() => changeStatus("INPROGRESS")}
           onDragOver={(e) => e.preventDefault()}
-          className="px-3 min-h-[200px]"
+          className="px-2 min-h-[200px]"
         >
           {/* INPROGRESS orders in here */}
 
@@ -92,12 +92,12 @@ const OrderList = ({ items }: OrderListProps) => {
         </div>
       </div>
       {/* CLOSE */}
-      <div className="w-1/3 overflow-auto">
+      <div className="min-w-[200px] max-w-sm w-full overflow-y-auto">
         <h3 className="text-center font-medium text-lg">CLOSE</h3>
         <div
           onDrop={() => changeStatus("CLOSE")}
           onDragOver={(e) => e.preventDefault()}
-          className="px-3 min-h-[200px]"
+          className="px-2 min-h-[200px]"
         >
           {/* CLOSE orders in here */}
           {items.map((order, ind) => {

@@ -31,7 +31,7 @@ const OrderCard = ({
 }: OrderCardProps) => {
   return (
     <Card
-      className="w-auto shadow-md"
+      className="w-auto shadow-md hover:cursor-move"
       draggable={draggable}
       onDragStart={onDragStart ? () => onDragStart(orderId) : undefined}
     >
